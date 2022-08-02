@@ -1,0 +1,62 @@
+<%- include('../partials/head') %>
+<%- include('../partials/nav') %>
+  
+  <section class="py-5">
+    <div class="container px-4 px-lg-5 my-5">
+        <div class="row gx-4 gx-lg-5 align-items-center">
+          <div class="col-sm-6 px-0 d-none d-sm-block">
+            <img src="<%= foundItem.img %>"
+              alt="New Clothes" class="w-100 vh-100" style="object-fit: cover; object-position: left;">
+          </div>
+            <div class="col-md-6">
+    
+            <div class="d-flex align-items-center h-custom-2 px-5 ms-xl-4 mt-2 pt-5 pt-xl-0 mt-xl-n5">
+    
+              <form action="/items/<%=foundItem._id%>?_method=PUT" method="POST" id="items" style="width: 23rem;">
+  
+                <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Edit Wardrobe Item</h3>
+    
+                <div class="form-outline mb-2">
+                  <input type="text" name="name" id="name" class="form-control form-control-lg" value="<%= foundItem.name %>">
+                  <label class="form-label" for="name">Item Name</label>
+                </div>
+    
+                <div class="form-outline mb-2">
+                  <input type="text" name="brand" id="brand" class="form-control form-control-lg" value="<%= foundItem.brand %>">
+                  <label class="form-label" for="brand">Brand</label>
+                </div>
+  
+                <div class="form-outline mb-2">
+                  <input type="text" name="item" id="item" class="form-control form-control-lg" value="<%= foundItem.type %>">
+                  <label class="form-label" for="item">Item Type</label>
+                </div>
+  
+                <div class="form-outline mb-2">
+                  <input type="text" name="description" id="description" class="form-control form-control-lg" value="<%= foundItem.description %>">
+                  <label class="form-label" for="description">Description</label>
+                </div>
+  
+                <div class="form-outline mb-2">
+                  <input type="text" name="notes" id="notes" class="form-control form-control-lg" value="<%= foundItem.notes %>">
+                  <label class="form-label" for="notes">Notes</label>
+                </div>
+  
+                <label for="itemIsFavorite">Favorite?</label>
+                <input id="itemIsFavorite" type="checkbox" name="itemIsFavorite" <% if(foundItem.itemIsFavorite){ %> checked <% } %>>
+                
+                <div class="pt-1 mb-2">
+                  <input class="btn btn-outline-dark mt-auto" type="submit" name="edit" value="Edit Item">
+                </div>
+                
+                <a href="/items/filtered" style="color: #393f81;">Go Back</a>
+    
+              </form>
+    
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </section>
+  
+    <%- include('../partials/footer') %>

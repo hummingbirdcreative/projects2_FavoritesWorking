@@ -1,0 +1,25 @@
+<a class="button" href="/items/filtered">My logs</a>
+<a class="button" style="margin: 1rem;" href="/items">All logs</a>
+
+<ul>
+    <li><img src="<%= foundItem.img %>" alt="picture"></li>
+    <li>name: <%= foundItem.name %></li>
+    <li>brand: <%= foundItem.brand %></li>
+    <li>type: <%= foundItem.type %></li>
+    <li>description: <%= foundItem.description %></li>
+    <li>notes: <%= foundItem.notes %></li>
+    <li>Favorite: <%= isFavorited ? "YES" : "NO" %></li>
+</ul>
+
+<% if (user === foundItem.user._id.toString()) { %>
+    <a class="button" href="/items/<%= foundItem._id %>/edit">Edit</a>
+    <form class="delete-form" action="/items/<%= foundItem._id %>?_method=DELETE" method="POST">
+        <input type="submit" value="Delete" class="button">
+    </form>
+    <% } else { %>
+    <p style="color: red">You can't edit or delete this log</p>
+    <%  } %>
+    <form action="/items/<%= foundItem._id %>/favorite?isFavorite=<%= isFavorited %>" method="POST">
+        <input type="submit" value="Add Favorite" class="button" />
+    </form>
+<a href="/items">Back</a>

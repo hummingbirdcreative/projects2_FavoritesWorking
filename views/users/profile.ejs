@@ -1,0 +1,22 @@
+<%- include('../partials/head') %>
+
+
+
+<header class="bg-dark py-5">
+    <div class="container px-4 px-lg-5 my-5">
+        <div class="text-center text-white">
+            <h1 class="display-4 fw-bolder" style="font-family: 'Covered By Your Grace', cursive;">Welcome, <span style="text-transform: capitalize; font-family: 'Covered By Your Grace', cursive;"><%= user.name %></span></h1>
+            <p class="lead fw-normal text-white-50 mb-0">Your email is <%= user.email %></p>
+        </div>
+    </div>
+</header>
+
+<div class="wrapper" style="background-image: url(https://i.imgur.com/JfAyVXX.png?1);">
+    <a class="button btn btn-dark btn-lg btn-block"  href="/items">All Wardrobe</a>
+    <a class="button btn btn-dark btn-lg btn-block" style="margin-top: 1rem;" href="/items/filtered">My Wardrobe</a>
+    <a class="button btn btn-dark btn-lg btn-block" style="margin-top: 1rem" href="/items/new">Add to Wardrobe</a>
+    <a class="button btn btn-dark btn-lg btn-block" style="width: fit-content; margin-top: 1rem" href="/users/profile/edit">Edit Profile</a>
+    <a class="button btn btn-dark btn-lg btn-block" style="width: fit-content; margin-top: 1rem" href="/users/logout">Logout</a>
+</div>
+
+<%- include('../partials/footer') %>
