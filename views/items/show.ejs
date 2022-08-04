@@ -11,7 +11,7 @@
     <li>Favorite: <%= isFavorited ? "YES" : "NO" %></li>
 </ul>
 
-<% if (user === foundItem.user._id.toString()) { %>
+<% if (user === item.favoriteUsers.includes(user._id)) { %>
     <a class="button" href="/items/<%= foundItem._id %>/edit">Edit</a>
     <form class="delete-form" action="/items/<%= foundItem._id %>?_method=DELETE" method="POST">
         <input type="submit" value="Delete" class="button">
